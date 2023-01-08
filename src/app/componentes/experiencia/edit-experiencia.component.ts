@@ -38,7 +38,7 @@ export class EditExperienciaComponent implements OnInit {
       data => {
         this.router.navigate(['']);
       }, err => {
-        alert("Error al modificar 'Experiencia': No puede haber campos vacíos.");
+        alert("Error al modificar Experiencia");
         this.router.navigate(['']);
       }
     )
