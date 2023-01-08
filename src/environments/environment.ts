@@ -4,16 +4,16 @@
 
 export const environment = {
   firebase: {
-    projectId: 'frontend-oab',
-    appId: '1:625424747285:web:ba3c850ac4cd95ca19f71c',
-    storageBucket: 'frontend-oab.appspot.com',
+    projectId: 'frontend-proyecto-oab',
+    appId: '1:34060165645:web:92e5242883d9ec4ea9ab44',
+    storageBucket: 'frontend-proyecto-oab.appspot.com',
     locationId: 'southamerica-east1',
-    apiKey: 'AIzaSyB1-aJO7Sv6-K9dvWOfFWogN292ZfTGmpM',
-    authDomain: 'frontend-oab.firebaseapp.com',
-    messagingSenderId: '625424747285',
+    apiKey: 'AIzaSyB0c9UM9AB7049cE-xSFcnFo591N0IZAeg',
+    authDomain: 'frontend-proyecto-oab.firebaseapp.com',
+    messagingSenderId: '34060165645',
   },
   production: false,
-  URL: 'https://oscar-baroni-elbaro23.koyeb.app/'
+  URL: 'https://backend-proyecto-elbaro23.koyeb.app/'
   //URL: 'http://localhost:8080/'
 
 };

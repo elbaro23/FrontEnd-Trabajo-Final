@@ -3,7 +3,7 @@
 }
 
 div {
-    background-color: #a1b5cd;
+    background-color: #92accd;
     text-align: center;
 }
 
@@ -24,7 +24,7 @@ div {
 #descripcion {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 @media (max-width: 576px) {

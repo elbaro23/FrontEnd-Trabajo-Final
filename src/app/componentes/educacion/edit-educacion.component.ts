@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
+import { ImageService } from 'src/app/service/image.service';
 import { EducacionService } from 'src/app/service/educacion.service';
 
 @Component({
@@ -8,21 +9,21 @@ import { EducacionService } from 'src/app/service/educacion.service';
   templateUrl: './edit-educacion.component.html',
   styleUrls: ['./edit-educacion.component.css']
 })
-export class EditEducacionComponent implements OnInit{
+export class EditEducacionComponent implements OnInit {
   educacion: Educacion = null;
 
   constructor(
-      private educacionS: EducacionService,
-      private activatedRouter: ActivatedRoute,
-      private router: Router
-      ) { }
+    private activatedRouter: ActivatedRoute,
+    private educacionS: EducacionService,
+    private router: Router,
+    public imageService: ImageService) { }
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
     this.educacionS.detail(id).subscribe(
-      data =>{
+      data => {
         this.educacion = data;
-      }, err =>{
+      }, err => {
         alert("Error al modificar");
         this.router.navigate(['']);
       }
@@ -31,13 +32,20 @@ export class EditEducacionComponent implements OnInit{
 
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
+    this.educacion.imgEd = this.imageService.url;
     this.educacionS.update(id, this.educacion).subscribe(
       data => {
         this.router.navigate(['']);
       }, err => {
-        alert("Error al modificar 'Educación': No puede haber campos vacíos.");
+        alert("Error al modificar Educación");
         this.router.navigate(['']);
       }
     )
+  }
+
+  uploadImage($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "educacion_" + id;
+    this.imageService.uploadImage($event, name)
   }
 }

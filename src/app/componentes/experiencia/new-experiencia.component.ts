@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
-import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import { ImageService } from 'src/app/service/image.service';
+import { ExperienciaService } from 'src/app/service/experiencia.service';
 
 @Component({
   selector: 'app-new-experiencia',
@@ -9,40 +10,39 @@ import { SExperienciaService } from 'src/app/service/s-experiencia.service';
   styleUrls: ['./new-experiencia.component.css']
 })
 export class NewExperienciaComponent implements OnInit {
-  nombreE: string = '';
-  descripcionE: string = '';
+  nombreE: string;
+  descripcionE: string;
+  periodoE: string;
+  linkE: string;
+  imgE: string;
 
-  constructor(private sExperiencia: SExperienciaService, private router: Router) { }
+  constructor(
+    private activatedRouter: ActivatedRoute,
+    private experienciaS: ExperienciaService,
+    private router: Router,
+    public imageService: ImageService) { }
 
   ngOnInit(): void {
 
   }
 
   onCreate(): void {
-    const expe = new Experiencia(this.nombreE, this.descripcionE);
-    this.sExperiencia.save(expe).subscribe(
+    const experiencia = new Experiencia(this.nombreE, this.descripcionE, this.periodoE, this.linkE, this.imgE);
+    this.experienciaS.save(experiencia).subscribe(
       data => {
         alert("Experiencia añadida con éxito.");
         this.router.navigate(['']);
       }, err => {
-        alert("Error: El campo 'Nombre' no puede estar repetido. Todos los campos deben estar completos.");
+        alert("Error al agregar el Experiencia");
         this.router.navigate(['']);
       }
     )
   }
 
+  uploadImage($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "experiencia_" + id;
+    this.imageService.uploadImage($event, name)
+
+  }
 }
-
-//Para quitar lo tachado de subscribe
-    /*   next: (data)=>{
-        alert("Experiencia añadida");
-        this.router.navigate(['']);
-       },
-       error: (err)=>{
-        alert("Falló");
-        this.router.navigate(['']);
-        }  
-      }); 
-    }   
-  }*/
-

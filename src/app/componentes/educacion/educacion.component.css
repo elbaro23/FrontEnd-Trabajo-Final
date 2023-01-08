@@ -1,11 +1,53 @@
 .row {
     padding: 20px;
+    background-color:#92accd;
+}
+
+.container {
+    width: auto;
+
+}
+
+.parte1,
+.parte2 {
+    display: inline-block;
+    text-align: justify;
+}
+
+#img-educación {
+    box-shadow: 10px 10px 30px black;
+    width: 125px;
+    height: 125px;
+
+
+}
+
+#botones {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.table {
+    width: 100%;
+    text-align: center;
+}
+
+#tdedu {
+    width: 20%;
+
+}
+
+.row {
+    padding: 20px;
 }
 
 div {
-    background-color: #a1b5cb;
+    background-color: #92accd;
 }
-h2, h3 {
+
+h2,
+h3 {
     display: inline;
 }
 

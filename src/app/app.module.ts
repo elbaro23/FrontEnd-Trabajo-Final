@@ -30,6 +30,9 @@ import { EditAcercaDeComponent } from './componentes/acerca-de/edit-acerca-de.co
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { NewProyectoComponent } from './componentes/proyecto/new-proyecto.component';
+import { EditProyectoComponent } from './componentes/proyecto/edit-proyecto.component';
+
 
 
 @NgModule({
@@ -53,6 +56,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NewSkillComponent,
     HysComponent,
     EditAcercaDeComponent,
+    NewProyectoComponent,
+    EditProyectoComponent
    
   ],
   imports: [

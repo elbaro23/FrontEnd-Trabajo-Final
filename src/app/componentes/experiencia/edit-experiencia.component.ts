@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
-import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import { ImageService } from 'src/app/service/image.service';
+import { ExperienciaService } from 'src/app/service/experiencia.service';
+
 
 @Component({
   selector: 'app-edit-experiencia',
@@ -9,29 +11,30 @@ import { SExperienciaService } from 'src/app/service/s-experiencia.service';
   styleUrls: ['./edit-experiencia.component.css']
 })
 export class EditExperienciaComponent implements OnInit {
-  expLab : Experiencia = null;
+  experiencia: Experiencia = null;
 
   constructor(
-    private sExperiencia: SExperienciaService, 
-    private activateRouter: ActivatedRoute,
-    private router: Router
-    ) {}
+    private activatedRouter: ActivatedRoute,
+    private experienciaS: ExperienciaService,
+    private router: Router,
+    public imageService: ImageService) { }
 
   ngOnInit(): void {
-    const id = this.activateRouter.snapshot.params['id'];
-    this.sExperiencia.detail(id).subscribe(
-      data =>{
-        this.expLab = data;
-      }, err =>{
-        alert("Error al modificar experiencia.");
+    const id = this.activatedRouter.snapshot.params['id'];
+    this.experienciaS.detail(id).subscribe(
+      data => {
+        this.experiencia = data;
+      }, err => {
+        alert("Error al modificar");
         this.router.navigate(['']);
       }
     )
   }
 
-  onUpdate(): void{
-    const id = this.activateRouter.snapshot.params['id'];
-    this.sExperiencia.update(id, this.expLab).subscribe(
+  onUpdate(): void {
+    const id = this.activatedRouter.snapshot.params['id'];
+    this.experiencia.imgE = this.imageService.url;
+    this.experienciaS.update(id, this.experiencia).subscribe(
       data => {
         this.router.navigate(['']);
       }, err => {
@@ -41,4 +44,10 @@ export class EditExperienciaComponent implements OnInit {
     )
   }
 
+  uploadImage($event: any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "experiencia_" + id;
+    this.imageService.uploadImage($event, name)
+
+  }
 }

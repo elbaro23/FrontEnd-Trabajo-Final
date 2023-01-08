@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-//import { environment } from 'src/environments/environment';
 import { Skill } from '../model/skill';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { Skill } from '../model/skill';
 })
 export class SkillService {
 
-  URL = 'https://oscar-baroni-elbaro23.koyeb.app/skill/';
+  URL = 'https://backend-proyecto-elbaro23.koyeb.app/skill/';
   //URL = 'http://localhost:8080/skill/';
 
   constructor(private httpClient: HttpClient) { }
