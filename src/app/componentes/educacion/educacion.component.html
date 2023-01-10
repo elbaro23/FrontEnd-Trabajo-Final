@@ -1,34 +1,41 @@
 <div class="row">
+    <div class="col-12 col-sm-2 col-md-2 col-lg-2 text-center">
     <h1>EDUCACIÓN:</h1>
-    <div class="col-lg-2">
+    </div>  
+    <div class="col-lg-12"></div>
+    <div class="col-12 col-sm-2 col-md-2 col-lg-2 text-center">
         <button type="button" class="btn btn-primary" routerLink="/newedu" *ngIf="isLogged">
             Agregar Estudios
         </button>
     </div>
-    <div class="col-lg-12">
-    <table class="table">
-        <tbody>
-            <tr *ngFor="let Educacion of educacion">
-                <td id="tdedu"><img src={{Educacion.imgEd}} class="img-fluid" id="img-educación" alt="img-educación">
-                </td>
-                <td id="tdedu">
-                    <h4>{{Educacion.nombreEd}}</h4>
-                </td>
-                <td id="tdedu">{{Educacion.descripcionEd}}</td>
-                <td id="tdedu">{{Educacion.periodoEd}}</td>
-                <td id="tdedu"><a href="{{Educacion.linkEd}}" target="_blank"
-                        title="click para visitar sitio">{{Educacion.linkEd}}</a></td>
-                <div id="botones">
-                    <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}">
-                            <i class="bi bi-pencil-square">EDITAR</i></button>
-                    </td>
-                    <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(Educacion.id)">
-                            <i class="bi bi-trash3">BORRAR</i></button>
-                    </td>
-                </div>
-            </tr>
-        </tbody>
-    </table>
+    <div class="col-lg-10"></div>
+    <div class="row text-center mx-auto img-fluid" *ngFor="let Educacion of educacion">
+        <div class="col-lg-2"><img src={{Educacion.imgEd}} class="img-fluid" id="img-educacion"
+                alt="img-educacion"></div>
+        <br>
+        <div class="col-lg-2">
+            <h4>{{Educacion.nombreEd}}</h4>
+        </div>
+        <br>
+        <div class="col-lg-2">{{Educacion.descripcionEd}}</div>
+        <br>
+        <div class="col-lg-2">{{Educacion.periodoEd}}</div>
+        <br>
+        <div class="col-lg-2 text-truncate">
+            <a  href="{{Educacion.linkEd}}" target="_blank" title="click para visitar sitio">
+                {{Educacion.linkEd}}</a>
+            <br>
+        </div>
+        <br>
+        <div class="col-lg-2" id="botones">
+            <td *ngIf="isLogged">
+                <button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}">
+                    <i class="bi bi-pencil-square">EDITAR</i></button>
+            </td>
+            <td *ngIf="isLogged">
+                <button class="btn btn-danger" (click)="delete(Educacion.id)">
+                    <i class="bi bi-trash3">BORRAR</i></button>
+            </td>
+        </div>
+    </div>
 </div>

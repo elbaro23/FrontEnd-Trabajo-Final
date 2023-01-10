@@ -1,35 +1,40 @@
 <div class="row">
+    <div class="col-12 col-sm-2 col-md-2 col-lg-2 text-center">
     <h1>PROYECTO:</h1>
-    <div class="col-lg-2">
+    </div>  
+    <div class="col-lg-12"></div>
+    <div class="col-12 col-sm-2 col-md-2 col-lg-2 text-center">
         <button type="button" class="btn btn-primary" routerLink="/newproy" *ngIf="isLogged">
             Agregar Proyecto
         </button>
     </div>
-    <div class="col-lg-12">
-        <table class="table">
-            <tbody>
-                <tr *ngFor="let Proyecto of proyecto">
-                    <td id="tdproy"><img src={{Proyecto.imgP}} class="img-fluid" id="img-proyecto" alt="img-proyecto">
-                    </td>
-                    <td id="tdproy">
-                        <h4>{{Proyecto.nombreP}}</h4>
-                    </td>
-                    <td id="tdproy">{{Proyecto.descripcionP}}</td>
-                    <td id="tdproy">{{Proyecto.periodoP}}</td>
-                    <td id="tdproy"><a href="{{Proyecto.linkP}}" target="_blank"
-                            title="click para visitar sitio">{{Proyecto.linkP}}</a></td>
-                    <div id="botones">
-                        <td *ngIf="isLogged">
-                            <button class="btn btn-light" routerLink="/editproy/{{Proyecto.id}}">
-                                <i class="bi bi-pencil-square">EDITAR</i></button>
-                        </td>
-                        <td *ngIf="isLogged">
-                            <button class="btn btn-danger" (click)="delete(Proyecto.id)">
-                                <i class="bi bi-trash3">BORRAR</i></button>
-                        </td>
-                    </div>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row text-center mx-auto img-fluid" *ngFor="let Proyecto of proyecto">
+        <div class="col-lg-2"><img src={{Proyecto.imgP}} class="img-fluid" id="img-proyecto"
+                alt="img-proyecto"></div>
+        <br>
+        <div class="col-lg-2">
+            <h4>{{Proyecto.nombreP}}</h4>
+        </div>
+        <br>
+        <div class="col-lg-2">{{Proyecto.descripcionP}}</div>
+        <br>
+        <div class="col-lg-2">{{Proyecto.periodoP}}</div>
+        <br>
+        <div class="col-lg-2 text-truncate">
+            <a href="{{Proyecto.linkP}}" target="_blank" title="click para visitar sitio">
+                {{Proyecto.linkP}}</a>
+            <br>
+        </div>
+        <br>
+        <div class="col-lg-2" id="botones">
+            <td *ngIf="isLogged">
+                <button class="btn btn-light" routerLink="/editproy/{{Proyecto.id}}">
+                    <i class="bi bi-pencil-square">EDITAR</i></button>
+            </td>
+            <td *ngIf="isLogged">
+                <button class="btn btn-danger" (click)="delete(Proyecto.id)">
+                    <i class="bi bi-trash3">BORRAR</i></button>
+            </td>
+        </div>
     </div>
 </div>

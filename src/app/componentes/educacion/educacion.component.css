@@ -1,6 +1,6 @@
 .row {
     padding: 20px;
-    background-color:#92accd;
+    background-color: #92accd;
 }
 
 .container {
@@ -14,27 +14,16 @@
     text-align: justify;
 }
 
-#img-educación {
-    box-shadow: 10px 10px 30px black;
+#img-educacion {
+    box-shadow: 10px 10px 10px black;
     width: 125px;
     height: 125px;
-
-
 }
 
 #botones {
     display: flex;
-    justify-content: left;
-    align-items: left;
-}
-
-.table {
-    width: 100%;
-    text-align: center;
-}
-
-#tdedu {
-    width: 20%;
+    justify-content: center;
+    margin-top: 1%;
 
 }
 
@@ -53,4 +42,8 @@ h3 {
 
 ul {
     margin-left: 20px;
+}
+
+tr {
+    border-color: #92accd;
 }

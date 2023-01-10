@@ -8,34 +8,42 @@
 
 }
 
-.parte1, .parte2 {
+.parte1,
+.parte2 {
     display: inline-block;
     text-align: justify;
 }
 
 #img-proyecto {
-    box-shadow: 10px 10px 30px black;
+    box-shadow: 10px 10px 10px black;
     width: 125px;
     height: 125px;
-    
-
 }
 
 #botones {
     display: flex;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    margin-top: 1%;
+
 }
 
-.table {
-    width: 100%;
-    text-align: center;
+.row {
+    padding: 20px;
 }
 
-#tdproy {
-    width: 20%;
-    
+div {
+    background-color: #92accd;
 }
 
+h2,
+h3 {
+    display: inline;
+}
 
+ul {
+    margin-left: 20px;
+}
 
+tr {
+    border-color: #92accd;
+}

@@ -9,3 +9,7 @@
     align-items: center; /*centrado al medio*/
 }
 
+tr {
+    border-color: #92accd;
+}
+

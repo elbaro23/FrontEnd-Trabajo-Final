@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-2">
+    <div class="col-12 col-sm-2 col-md-2 col-lg-2 text-center">
         <button type="button" class="btn btn-primary" routerLink="/editacercade/1" *ngIf="isLogged" id="boton">
             Editar persona
         </button>
@@ -11,13 +11,13 @@
         <img src={{persona.img}} alt="foto perfil" class="img-fluid rounded-circle" id="foto_perfil">
     </div>
     <div class="col-12 col-sm-2 col-md-2 col-lg-2">
-        <p id="nombre">{{persona.nombre}} {{persona.apellido}}</p>
-        <p>Full Stack Develepor Jr</p>
+        <h2 id="nombre">{{persona.nombre}} {{persona.apellido}}</h2>
+        <h3>Full Stack Develepor Jr</h3>
     </div>
     <div class="col-12 col-sm-8 col-md-8 col-lg-8" id="descripcion">
         <span>
-            <h1>Acerca de mí</h1>
-            <p>{{persona.descripcion}}</p>
+            <h1>ACERCA DE MÍ</h1>
+            <h4>{{persona.descripcion}}</h4>
         </span>
     </div>
 </div>

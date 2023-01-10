@@ -9,21 +9,24 @@ div {
 
 #foto_perfil {
     border-radius: 100%;
+
 }
 
 #nombre {
     font-weight: bold;
     margin-top: 30%;
+
 }
 
 #boton {
     margin-bottom: 20px;
-    display: flex;
+    /*display: flex;*/
 }
 
 #descripcion {
     display: flex;
     justify-content: center;
+    margin-top: 3%;
     /*align-items: center;*/
 }
 
